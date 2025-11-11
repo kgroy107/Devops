@@ -4,3 +4,6 @@
 Learning markdowen file writing to build up my archieve of work.
 
 More writing to practice my work
+- one
+- two
+- three
