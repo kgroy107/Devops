@@ -31,7 +31,7 @@ let num=Math.random();
 |more|more |more|
 
 ##### The following is example of font styling
-**test**
+
 **This text is bold**
 
 *This text is italic*
