@@ -19,4 +19,17 @@ This is a exmaple of bullet points example
 ```javascript
 let num=Math.random();
 ```
+##### The following is example of adding picture raph
 ![alt text](http://picsum.photos/200/200)
+
+##### The following is example of blockquote 
+> blockquote text below the paragraph
+##### The following is example of table
+| heading | header | head |
+| --- |--- |--- |
+|content|more content|text|
+|more|more |more|
+
+##### The following is example of font styling
+
+I love to eat ** biriyani **  and  * tehari * . 
