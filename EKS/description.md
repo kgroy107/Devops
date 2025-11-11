@@ -32,4 +32,4 @@ let num=Math.random();
 
 ##### The following is example of font styling
 
-I love to eat ** biriyani **  and  * tehari * . 
+I love to eat ** biriyani **  and  * tehari * and ~~ other . 
