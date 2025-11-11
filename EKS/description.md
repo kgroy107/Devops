@@ -31,5 +31,14 @@ let num=Math.random();
 |more|more |more|
 
 ##### The following is example of font styling
+**test**
+**This text is bold**
 
-I love to eat ** biriyani **  and  * tehari * and ~~ other . 
+*This text is italic*
+
+~~This text is strikethrough~~
+
+**_This text is bold and italic_**
+
+**~~This text is bold and strikethrough~~**
+ 
