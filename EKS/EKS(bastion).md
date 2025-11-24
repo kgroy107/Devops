@@ -67,5 +67,6 @@ eksctl create cluster --name ashokit-cluster4 --region ap-south-1 --node-type t2
 eksctl delete cluster --name ashokit-cluster4 --region ap-south-1
 ```
  
-[Documentation collected from ashokitschool]([http://www.youtube.com](https://github.com/ashokitschool/DevOps-Documents/blob/main/05-EKS-Setup.md)
+[Documentation collected from ashokitschool]([http://www.youtube.com](https://github.com/ashokitschool/DevOps-Documents/blob/main/05-EKS-Setup.md)</br>
+
 [Youtube help video] (https://www.youtube.com/watch?v=is99tq4Zwsc)
