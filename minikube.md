@@ -1,1 +1,0 @@
-contain minikube config
