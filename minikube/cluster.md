@@ -101,6 +101,112 @@ spec:
         - containerPort: 80
 ```
 
+##### Creating Kubernetes deployment
 
+1. creating pod with v2.yaml
+   
+```script
+apiVersion: v1
+kind: Service
+metadata:
+  name: mywebapp
+  labels:
+    app: mywebapp
+spec:
+  ports:
+  - port: 80
+    protocol: TCP
+    name: flask
+  selector:
+    app: mywebapp
+    tier: frontend
+  type: LoadBalancer
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mydeployment
+  labels:
+    app: mywebapp
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mywebapp
+      tier: frontend
+  template:
+    metadata: 
+      labels:
+        app: mywebapp
+        tier: frontend
+    spec: # Pod spec
+      containers:
+      - name: mycontainer
+        image: devopsjourney1/mywebapp
+        ports:
+        - containerPort: 80
+```
+Watch by command that a service and a deployment has been creatred. To communicate with service, execute the following:
+```script
+k get service
+```
+```script
+minikube service mywebapp 
+```
+##### Applying ConfigMap and scaling Pods
+ ```script
+apiVersion: v1
+kind: Service
+metadata:
+  name: mywebapp
+  labels:
+    app: mywebapp
+spec:
+  ports:
+  - port: 80
+    protocol: TCP
+    name: flask
+  selector:
+    app: mywebapp
+    tier: frontend
+  type: LoadBalancer
+---
+kind: ConfigMap 
+apiVersion: v1 
+metadata:
+  name: myconfigmapv1.1
+data:
+  BG_COLOR: '#12181b'
+  FONT_COLOR: '#FFFFFF'
+  CUSTOM_HEADER: 'DevOps Journey!'
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mydeployment
+  labels:
+    app: mywebapp
+spec:
+  replicas: 5
+  selector:
+    matchLabels:
+      app: mywebapp
+      tier: frontend
+  template:
+    metadata:
+      labels:
+        app: mywebapp
+        tier: frontend
+    spec: # Pod spec
+      containers:
+      - name: mycontainer
+        image: devopsjourney1/mywebapp
+        ports:
+        - containerPort: 80
+        envFrom:
+        - configMapRef:
+            name: myconfigmapv1.1
+```
+##### Applying Resources to be consumed
 
 Courtesy:[Kubernetes Tutorial for Beginners [1 Hour Course]](https://www.youtube.com/watch?v=1Lu1F94exhU))
