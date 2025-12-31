@@ -53,3 +53,54 @@ k get namespaces
 ```script
 k get namespaces
 ```
+🔹 creating a pod with the command (check the docker image server first)
+```script
+kubectl create deployment hello-node --image=registry.k8s.io/echoserver:1.10
+```
+🔹 Checking the events
+```script
+k get events -n dev
+```
+🔹 Creates a Service object in the dev namespace. The service listens on port 8080 and forwards traffic to the pods’ container port.
+```script
+k expose  deployment hello-node --type=LoadBalancer --port=8080 -n dev
+```
+Verify the service
+
+```script
+kubectl get svc -n dev
+```
+
+##### Deploying and customizing a Kubernetes application 
+1. creating pod with v1.yaml
+   
+```script
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mydeployment
+  labels:
+    app: mywebapp
+    tier: frontend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mywebapp
+      tier: frontend
+  template:
+    metadata:
+      labels:
+        app: mywebapp
+        tier: frontend
+    spec: # Pod spec
+      containers:
+      - name: mycontainer
+        image: devopsjourney1/mywebapp
+        ports:
+        - containerPort: 80
+```
+
+
+
+Courtesy:[Kubernetes Tutorial for Beginners [1 Hour Course]](https://www.youtube.com/watch?v=1Lu1F94exhU))
